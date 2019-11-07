@@ -70,6 +70,7 @@ RUN sed -i -e "s/^;pm.process_idle_timeout = 10/pm.process_idle_timeout = 5/g" $
 RUN sed -i -e "s/www-data/nginx/g" ${fpm_conf}
 RUN sed -i -e "s/apache/nginx/g" ${fpm_conf} 
 RUN sed -i -e "s/^;clear_env = no$/clear_env = no/g" ${fpm_conf}
+RUN mkdir -p /var/run/php-fpm
 
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
